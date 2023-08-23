@@ -5,8 +5,12 @@ from tkinter import *
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
+  website = input_website.get()
+  email = input_email.get()
+  password = input_password.get()
+  
   with open("data.txt", "a+") as file:
-    file.write(f"{input_website} | {input_email} | {input_password}\n")
+    file.write(f"{website} | {email} | {password}\n")
   input_website.delete(0, END)
   input_email.delete(0,END)
   input_email.insert(0, "email@gmail.com")
