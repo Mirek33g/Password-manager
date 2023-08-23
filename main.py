@@ -10,7 +10,7 @@ from tkinter import *
 # creates GUI interface (window)
 window = Tk()
 window.title("Password Manager")
-window.config(padx=20, pady=20)
+window.config(padx=50, pady=50)
 
 # adds image on the screen and locate it 
 canvas = Canvas(width=200, height=200, highlightthickness=0)
@@ -18,6 +18,8 @@ logo = PhotoImage(file= "logo.png")
 canvas.create_image(100, 100, image=logo)
 canvas.grid(column=1, row=0)
 
+
+#creates all labes, inputs and buttons to the screen
 label_website = Label(text="Website:")
 label_website.grid(column=0, row=1)
 
@@ -41,6 +43,7 @@ generate_button.grid(column=2, row=3)
 
 add_button = Button(text="Add", width=37)
 add_button.grid(column=1, row=4, columnspan=2)
+# all labels, inputs and buttuns done
 
 
 
