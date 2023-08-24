@@ -1,20 +1,27 @@
 from tkinter import *
-
+from tkinter import messagebox
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
+# users inputs stored in variables
   website = input_website.get()
   email = input_email.get()
   password = input_password.get()
-  
-  with open("data.txt", "a+") as file:
-    file.write(f"{website} | {email} | {password}\n")
-  input_website.delete(0, END)
-  input_email.delete(0,END)
-  input_email.insert(0, "email@gmail.com")
-  input_password.delete(0, END)
+
+# checks if any of inputs are empty
+  if len(website) == 0 or len(email) == 0:
+    messagebox.showinfo(title="Oops", message="Please don't leave any fields empty")
+# checks if user agrees with saving details to the file
+  else:
+    is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmal: {email} \nPassword: {password} \nIs it ok to save?")
+    if is_ok:
+      with open("data.txt", "a") as file:
+        file.write(f"{website} | {email} | {password}\n")
+        input_website.delete(0, END)
+        input_password.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -24,12 +31,11 @@ window = Tk()
 window.title("Password Manager")
 window.config(padx=50, pady=50)
 
-# adds image on the screen and locate it 
+# adds image on the screen and locate it
 canvas = Canvas(width=200, height=200, highlightthickness=0)
-logo = PhotoImage(file= "logo.png") 
+logo = PhotoImage(file="logo.png")
 canvas.create_image(100, 100, image=logo)
 canvas.grid(column=1, row=0)
-
 
 #creates all labes, inputs and buttons to the screen
 label_website = Label(text="Website:")
@@ -52,19 +58,11 @@ password.grid(column=0, row=3)
 input_password = Entry(width=24)
 input_password.grid(column=1, row=3)
 
-generate_button = Button(text= "Generate Password", width=12)
+generate_button = Button(text="Generate Password", width=12)
 generate_button.grid(column=2, row=3)
 
 add_button = Button(text="Add", width=37, command=save)
 add_button.grid(column=1, row=4, columnspan=2)
 # all labels, inputs and buttuns done
-
-
-
-
-
-
-
-
 
 window.mainloop()
