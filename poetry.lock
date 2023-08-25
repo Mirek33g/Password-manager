@@ -452,6 +452,7 @@ virtualenv = ">=20.0.26,<21.0.0"
 [package.source]
 type = "url"
 url = "https://storage.googleapis.com/poetry-bundles/poetry-1.1.15-py2.py3-none-any.whl"
+
 [[package]]
 name = "poetry-core"
 version = "1.0.8"
@@ -489,6 +490,14 @@ name = "pylev"
 version = "1.4.0"
 description = "A pure Python Levenshtein implementation that's not freaking GPL'd."
 category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pyperclip"
+version = "1.8.2"
+description = "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -759,7 +768,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "1f50422b619941e99f77835105978db5f5a11f68c85e8df43ff0700978c9f55e"
+content-hash = "151b75fce39d90c3375dd646d030e7477ee2dc2cfe8db14f5dfe1db73138088a"
 
 [metadata.files]
 blinker = []
@@ -805,6 +814,7 @@ ptyprocess = []
 pycparser = []
 pyflakes = []
 pylev = []
+pyperclip = []
 python-lsp-jsonrpc = []
 pytoolconfig = []
 pywin32-ctypes = []
